@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="tr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>RIP Tombstone</title>
+        <link rel="stylesheet" href="./test.css">
+    </head>
+    <body class="dark-theme">
+        <div class="container">
+            <h1>RIP Your Legacy</h1>
+            <form id="tombstoneForm">
+                <label for="nickname">Takma Ad (Nickname)</label>
+                <input type="text" id="nickname" name="nickname"
+                    placeholder="Enter your nickname" required>
+
+                <label for="causeOfDeath">Ölüm Nedeni (Cause of Death)</label>
+                <input type="text" id="causeOfDeath" name="causeOfDeath"
+                    placeholder="Enter the cause of death" required>
+
+                <button type="submit">Mezar Taşını Oluştur</button>
+            </form>
+
+            <div id="tombstoneResult" class="hidden">
+                <div class="tombstone">
+                    <h2 id="tombstoneNickname">Nickname</h2>
+                    <p id="tombstoneCauseOfDeath">Cause of Death</p>
+                    <p id="deathDate">Nisan 2025</p>
+                    <p class="quote">"Gitti ama satmadı."</p>
+                </div>
+                <button id="downloadBtn">Görseli indir</button>
+                <button id="shareBtn">X (Twitter)’ta paylaş</button>
+            </div>
+        </div>
+
+        <script src="./sc.js"></script>
+    </body>
+</html>

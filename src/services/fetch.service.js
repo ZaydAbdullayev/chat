@@ -7,7 +7,7 @@ const pubnub = new PubNub({
     uuid: Math.random().toString(36).substring(2, 15), // UUID oluşturuyoruz
 });
 
-const channel = localStorage.getItem("channel") || channel; // Kanal adını localStorage'dan alıyoruz
+const channel = localStorage.getItem("channel") || 'test_channel'; // Kanal adını localStorage'dan alıyoruz
 
 // Bağlanılan odadaki mesajı gönderme
 const sendMessage = (message) => {

@@ -24,8 +24,8 @@ export const ChatBox = () => {
 
   const fetchMessages = async () => {
     try {
-      const oldMessages = await fetchOldMessages(100); // Son 100 mesajı al
-      setMessages((prev) => [...oldMessages, ...prev]); // Eski mesajları ekle
+      const oldMessages = await fetchOldMessages(100); 
+      setMessages((prev) => [...oldMessages, ...prev]);
     } catch (error) {
       console.error("Error fetching messages:", error);
     }
@@ -33,8 +33,8 @@ export const ChatBox = () => {
 
   const onlineUsers = async () => {
     try {
-      const onlineUsers = await fetchOnlineUsers(chats[chatId].key); // Online kullanıcıları al
-      setActiveUsers(onlineUsers.channels[chats[chatId].key].occupancy); // Online kullanıcıları state'e ata
+      const onlineUsers = await fetchOnlineUsers(chats[chatId].key);
+      setActiveUsers(onlineUsers.channels[chats[chatId].key].occupancy);
     } catch (error) {
       console.error("Error fetching online users:", error);
     }

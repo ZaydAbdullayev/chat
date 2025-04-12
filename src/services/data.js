@@ -12,6 +12,58 @@ export const chats = [
     {
         name: 'Bunker Labs — secret drops, early missions',
         description: 'Join our bunker labs for exclusive drops and early missions.',
-
+        type: 'public',
+        key: 'bunker-labs',
+        color: '#ff0000',
+    },
+    {
+        name: 'Trench Warfare — strategy and tactics',
+        description: 'Discuss strategies and tactics for trench warfare.',
+        type: 'public',
+        key: 'trench-warfare',
+        color: '#00ff00',
+    },
+    {
+        name: 'Battlefield Heroes — share your victories',
+        description: 'Share your victories and battle stories with fellow heroes.',
+        type: 'public',
+        key: 'battlefield-heroes',
+        color: '#0000ff',
+    },
+    {
+        name: 'Command Center — elite tactics and operations',
+        description: 'Discuss elite tactics and operations in the command center.',
+        type: 'public',
+        key: 'command-center',
+        color: '#ff00ff',
+    },
+    //secret chats
+    {
+        name: 'Top Secret Missions — classified operations',
+        description: 'Join our top secret missions for classified operations.',
+        type: 'secret',
+        key: 'top-secret-missions',
+        color: '#ff00ff',
+    },
+    {
+        name: 'Elite Commanders — strategy and tactics',
+        description: 'Discuss strategies and tactics with elite commanders.',
+        type: 'secret',
+        key: 'elite-commanders',
+        color: '#ffff00',
+    },
+    {
+        name: 'Battlefield Legends — share your victories',
+        description: 'Share your victories and battle stories with battlefield legends.',
+        type: 'secret',
+        key: 'battlefield-legends',
+        color: '#00ffff',
+    },
+    {
+        name: 'War Room — elite tactics and operations',
+        description: 'Discuss elite tactics and operations in the war room.',
+        type: 'secret',
+        key: 'war-room',
+        color: '#ff0000',
     }
 ]

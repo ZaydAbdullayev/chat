@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Layout } from "./layout";
+import { ChatBox } from "./chat";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -11,6 +12,7 @@ createRoot(document.getElementById("root")).render(
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<App />} />
+          <Route path="/chat/:chatId" element={<ChatBox />} />
         </Route>
       </Routes>
     </BrowserRouter>

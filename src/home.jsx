@@ -52,11 +52,10 @@ function App() {
     onlineUsers(); // İlk odanın online kullanıcılarını al
   }, []);
 
-  const goToChat = (index) => { 
+  const goToChat = (index) => {
     localStorage.setItem("channel", chats[index].key); // Kanal adını localStorage'a kaydet
-      navigate(`/chat/${index}`); // Public odalara git
-  }
-
+    navigate(`/chat/${index}`); // Public odalara git
+  };
 
   return (
     <div className="w100 df fdc aic wrapper">
@@ -66,7 +65,10 @@ function App() {
         <div className="df aic gap-15 btns">
           <button>X</button>
           {user?.userId ? (
-            <button>YOUR ID: {user.userId}</button>
+            <>
+              <button>YOUR ID: {user.userId}</button>
+              <button onClick={()=> localStorage.removeItem("user")}>Change Profil</button>
+            </>
           ) : (
             <button onClick={() => setModal(true)}>
               Join National Trenches
@@ -94,9 +96,7 @@ function App() {
             <div
               key={index}
               className={`df fdc aic gap-15 chat-card _${index + 1}`}
-              onClick={() =>
-                chat.type === "public" && goToChat(index)
-              }
+              onClick={() => chat.type === "public" && goToChat(index)}
             >
               {chat.type === "public" && (
                 <span className="df aic gap-5">

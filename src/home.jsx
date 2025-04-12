@@ -5,6 +5,10 @@ import { IoChatbubblesSharp } from "react-icons/io5";
 import soon from "./assets/soon-3.png";
 import soonbg from "./assets/soon-f.gif";
 import { useNavigate } from "react-router-dom";
+import { FormModal } from "./components/moda";
+import { useEffect, useState } from "react";
+import { fetchOnlineUsers } from "./services/fetch.service";
+import { RiUser3Fill } from "react-icons/ri";
 
 const weeklyWinner = [
   {
@@ -25,12 +29,46 @@ const weeklyWinner = [
 ];
 
 function App() {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const [modal, setModal] = useState(user?.userId ? false : true);
+  const [activeUsers, setActiveUsers] = useState({});
   const navigate = useNavigate();
+
+  const onlineUsers = async () => {
+    try {
+      const onlineUsers = await fetchOnlineUsers([
+        "bunker_labs",
+        "trench_warfare",
+        "battlefield_heroes",
+        "command_center",
+      ]); // Online kullanıcıları al
+      setActiveUsers(onlineUsers.channels); // Online kullanıcıları state'e ata
+    } catch (error) {
+      console.error("Error fetching online users:", error);
+    }
+  };
+
+  useEffect(() => {
+    onlineUsers(); // İlk odanın online kullanıcılarını al
+  }, []);
+
+  console.log(activeUsers);
+
   return (
     <div className="w100 df fdc aic wrapper">
       <div className="w100 df fdc aic content">
         <h1 className="title">Welcome to</h1>
         <h1 className="title">National Tranches Chat</h1>
+        <div className="df aic gap-15 btns">
+          <button>X</button>
+          {user?.userId ? (
+            <button>YOUR ID: {user.userId}</button>
+          ) : (
+            <button onClick={() => setModal(true)}>
+              Join National Trenches
+            </button>
+          )}
+        </div>
       </div>
       <div className="w100 df fdc aic gap-20 content">
         <h2 className="fs-32 title b-b">Weekly Leaderboards / Hall of Fame</h2>
@@ -56,6 +94,11 @@ function App() {
                 chat.type === "public" && navigate(`/chat/${index}`)
               }
             >
+              {chat.type === "public" && (
+                <span className="df aic gap-5">
+                  <RiUser3Fill /> {activeUsers[chat.key]?.occupancy || 0}
+                </span>
+              )}
               <IoChatbubblesSharp />
               <h3>{chat.name}</h3>
               <p>{chat.description}</p>
@@ -73,6 +116,7 @@ function App() {
         <p>National Tranches Chat</p>
         <p>© 2023</p>
       </div>
+      <FormModal modal={modal} setModal={setModal} />
     </div>
   );
 }

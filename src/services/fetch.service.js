@@ -161,6 +161,11 @@ export {
 }; // Fonksiyonları dışa aktarıyoruz
 pubnub.subscribe({
     withPresence: true, // Presence olaylarını almak için
-    channels: [channel], // Abone olacağımız kanallar
+    channels: [
+        "bunker_labs",
+        "trench_warfare",
+        "battlefield_heroes",
+        "command_center",
+    ], // Abone olacağımız kanallar
 }); // Kullanıcıyı abone ediyoruz
 export default pubnub; // PubNub nesnesini dışa aktarıyoruz

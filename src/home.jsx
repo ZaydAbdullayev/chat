@@ -52,7 +52,11 @@ function App() {
     onlineUsers(); // İlk odanın online kullanıcılarını al
   }, []);
 
-  console.log(activeUsers);
+  const goToChat = (index) => { 
+    localStorage.setItem("channel", chats[index].key); // Kanal adını localStorage'a kaydet
+      navigate(`/chat/${index}`); // Public odalara git
+  }
+
 
   return (
     <div className="w100 df fdc aic wrapper">
@@ -91,7 +95,7 @@ function App() {
               key={index}
               className={`df fdc aic gap-15 chat-card _${index + 1}`}
               onClick={() =>
-                chat.type === "public" && navigate(`/chat/${index}`)
+                chat.type === "public" && goToChat(index)
               }
             >
               {chat.type === "public" && (

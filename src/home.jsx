@@ -5,6 +5,7 @@ import { IoChatbubblesSharp } from "react-icons/io5";
 import soon from "./assets/soon-3.png";
 import soonbg from "./assets/soon-f.gif";
 import { useNavigate } from "react-router-dom";
+import { RiTwitterXFill } from "react-icons/ri";
 
 const weeklyWinner = [
   {
@@ -32,7 +33,8 @@ function App() {
         <h1 className="title">Welcome to</h1>
         <h1 className="title">National Tranches Chat</h1>
       </div>
-      <div className="w100 df fdc aic gap-20 content">
+
+      {/* <div className="w100 df fdc aic gap-20 content">
         <h2 className="fs-32 title b-b">Weekly Leaderboards / Hall of Fame</h2>
         <div className="w100 df aic jcc winners">
           {weeklyWinner.map((winner, index) => (
@@ -43,7 +45,7 @@ function App() {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
 
       <div className="w100 df fdc aic gap-20 content">
         <h2 className="fs-32 title b-b">All Chats</h2>
@@ -69,9 +71,28 @@ function App() {
           ))}
         </div>
       </div>
+      <div className="df fdc aic gap-15 description">
+        <h2 className="fs-32 title b-b">About Us</h2>
+        <p>
+          National Tranches Chat is a community-driven platform where you can
+          connect with fellow enthusiasts, share your thoughts, and engage in
+          meaningful discussions. Join us to explore various topics, make new
+          friends, and be part of a vibrant online community.
+        </p>
+        <p>
+          Our platform is designed to foster open communication and collaboration
+          among users. Whether you're interested in gaming, technology, or
+          anything in between, you'll find a place here. We encourage you to
+          participate actively, share your ideas, and contribute to the growth
+          of our community.
+        </p>
+        <a href="https://x.com/trenches_chat" target="_blank" rel="noopener noreferrer" className="df aic gap-10 link-btn">
+          <RiTwitterXFill /> Follow Us
+        </a>
+      </div>
       <div className="w100 df fdc aic gap-5">
         <p>National Tranches Chat</p>
-        <p>© 2023</p>
+        <p>© 2025</p>
       </div>
     </div>
   );
